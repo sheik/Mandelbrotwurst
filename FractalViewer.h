@@ -7,7 +7,6 @@
 #ifndef FRACTALVIEWER_H
 #define FRACTALVIEWER_H
 
-#include "SDL/SDL.h"
 
 template<class FractalAlgorithm> class FractalViewer {
 
@@ -98,7 +97,7 @@ void FractalViewer<FractalAlgorithm>::update() {
 			if((iters = fa.in_set(z_x, z_y)) == -1) {
 				pixel(y, x, 16, 16, 16);
 			} else {
-				pixel(y, x, iters % 255, iters / 255, iters / 255);
+				pixel(y, x, iters % 255, iters % 255, iters / 255);
 			}
 
 		}

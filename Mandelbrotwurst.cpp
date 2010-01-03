@@ -1,5 +1,8 @@
 #include <iostream>
 
+#include <SDL/SDL.h>
+#include "SDL/SDL_thread.h"
+#include <GL/gl.h>
 #include "Mandelbrot.h"
 #include "FractalViewer.h"
 
@@ -8,8 +11,7 @@ int main(int argc, char *argv[]) {
 	SDL_Event event;
 
 	int options = (
-			SDL_ANYFORMAT |
-			SDL_HWSURFACE
+			SDL_HWSURFACE | SDL_DOUBLEBUF | SDL_FULLSCREEN
 			);
 
 	// initialize SDL
@@ -18,7 +20,7 @@ int main(int argc, char *argv[]) {
 	}
 
 	// Try to set video mode
-	if( (screen = SDL_SetVideoMode(1024, 768, 32, options)) == NULL) {
+	if( (screen = SDL_SetVideoMode(1366, 768, 32, options)) == NULL) {
 		std::cerr << "Unable to create video window: " << SDL_GetError();
 	}
 

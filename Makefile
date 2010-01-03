@@ -8,10 +8,10 @@ OBJS=$(CPPFILES:.cpp=.o)
 CC = gcc
 CXX = g++
 
-CXXFLAGS = -g -lSDL
+CXXFLAGS = -ggdb -lSDL
 
 Mandelbrotwurst : $(OBJS) 
-	g++ -o Mandelbrotwurst Mandelbrotwurst.cpp -lSDL $(OBJS)
+	g++ -o Mandelbrotwurst Mandelbrotwurst.cpp -lSDL -lGL $(OBJS)
 FractalViewer.o : FractalViewer.cpp
 
 
